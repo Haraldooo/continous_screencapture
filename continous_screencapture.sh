@@ -32,3 +32,6 @@ now=$(date +"%Y-%m-%d_%H-%M-%S")
 /usr/local/bin/magick $folder/sc-d1.jpg -resize 1200x800 -strip -interlace Plane -sampling-factor 4:2:0 -quality 65% $folder/$now-sc-d1.jpg
 /usr/local/bin/magick $folder/sc-d2.jpg -resize 1200x800 -strip -interlace Plane -sampling-factor 4:2:0 -quality 65% $folder/$now-sc-d2.jpg
 
+# Delete everything older than 3 das
+find "$folder" -type f -mtime +3 -exec rm {} \;
+
